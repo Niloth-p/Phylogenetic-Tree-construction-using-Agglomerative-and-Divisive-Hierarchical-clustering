@@ -1,32 +1,30 @@
-N IMAYAVALLI
-2015A8PS0444H
-Assignment 2
-Phylogenetic Tree using Hierarchical clustering
+# Phylogenetic Tree using Agglomerative and Divisive Hierarchical clustering
 
-Description:
-The prog is written to construct the phylogenetic tree (dendrogram) based on DNA/Protein sequences of species 
+## Description:
+<pre>The prog is written to construct the phylogenetic tree (dendrogram) based on DNA/Protein sequences of species 
 given in a dataset using Agglomerative and Divisive Hierarchical Clustering and to compare Agglomerative and Divisive
 methods. I have used min linkage to calculate the proximities.
-
-Dataset used:
+</pre>
+## Dataset used:
 Human Gene DNA Sequences
 http://genome.crg.es/datasets/ggalhsapgenes2005/hg16.311.putative.cds.fa
 
-How to run:
+## How to run:
 python Clusterer.py
 
 For using some other dataset, change the global variable 'filename'
 with the name of your dataset.
 And change the global variable 'first_time' to create and store the pickle file.
 
-PseudoCode/Explanation of the algo:
-Read data, preprocessing (also store the data in an ordered dictionary,
+## PseudoCode/Explanation of the algo:
+### Read data, preprocessing 
+    (also store the data in an ordered dictionary,
     so that a list of exclusive keys can be obtained - to get
     all pairs of pts for calculating proximity matrix)
-Needleman Wunsch algo - for distance calculation
-Calc Z - proximity matrix, dump pickle
+### Needleman Wunsch algo - for distance calculation
+### Calc Z - proximity matrix, dump pickle
 
-Clustering algo - Agglomerative
+### Clustering algo - Agglomerative
     Set numOfClusters = N
     Set clusters = list of keys
     Loop function call to clustering method until numOfClusters = 1
@@ -40,9 +38,9 @@ Clustering algo - Agglomerative
         Update numOfClusters -> --1
         Update Clusters -> remove A or B
         Update Proximity Matrix by Ward's method using Lance Williams Formula
-Draw dendrogram
+    Draw dendrogram
 
-Divisive clustering algo
+### Divisive clustering algo
     Set numOfClusters = 1
     Set clusters = all points as 1 cluster
     Loop function call to clustering method until numOfClusters = N
@@ -70,4 +68,3 @@ Divisive clustering algo
         #4 - [len(clustA), len(clustB)]
         Get #4 from the temp list after reversing its order
     Draw dendrogram
-
